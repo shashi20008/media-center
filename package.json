@@ -1,0 +1,32 @@
+{
+  "name": "media-center",
+  "version": "1.0.0",
+  "description": "Media center for cataloguing local media collections",
+  "main": "server.js",
+  "scripts": {
+    "test": "grunt test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shashi20008/media-center.git"
+  },
+  "keywords": [
+    "local",
+    "media",
+    "media",
+    "center",
+    "catalogue",
+    "rpi"
+  ],
+  "author": "Shashi Shekhar (shashi20008@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shashi20008/media-center/issues"
+  },
+  "homepage": "https://github.com/shashi20008/media-center#readme",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "lodash": "^4.17.11"
+  }
+}
