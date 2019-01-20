@@ -1,0 +1,22 @@
+@import (reference) "./variables.less";
+
+.side-bar {
+  position: absolute;
+  background-color: @Color900;
+  width: 250px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px 0;
+  color: @Color50;
+  box-shadow: 0 0 0.75rem 0 rgba(0,0,0,0.24), 0 0 0.75rem 0 rgba(0,0,0,0.48)
+}
+
+.side-bar-item {
+  padding: 10px 20px;
+
+  &.selected {
+    background: white;
+    color: black;
+  }
+}
