@@ -27,6 +27,7 @@
   "homepage": "https://github.com/shashi20008/media-center#readme",
   "dependencies": {
     "bluebird": "^3.5.3",
+    "express": "^4.16.4",
     "lodash": "^4.17.11"
   }
 }
