@@ -111,16 +111,15 @@ function collate() {
 const navFSTree = module.exports = (root, options) => {
   options || (options = {});
 
-  if (!path.isAbsolute(root)) {
-    root = path.join(__dirname, root);
-  }
+  // if (!path.isAbsolute(root)) {
+  //   root = path.join(__dirname, root);
+  // }
 
-  allPaths.push(root);
+  allPaths.push.apply(allPaths, root);
 
   module.exports.scanComplete = false;
 
-  return fsAsync.stat(root)
-    .then(file => file.isDirectory() ? collate() : Bluebird.reject(new Error("root must be a directory")));
+  return collate();
 };
 
 module.exports.getModel = function() {
