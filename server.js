@@ -1,9 +1,14 @@
 const NavigateFS = require('./nav-fs');
 const app = require('express')();
+const fs = require('fs');
 
 const roots = [];
 
-//NavigateFS(root);
+try {
+  const rootsFromFile = JSON.parse(fs.readFileSync('./roots.json'));
+  rootsFromFile && roots.push.apply(roots, rootsFromFile);
+}
+catch(e) { }
 
 app.use(function(req, res, next) {
   console.log(req.path);
@@ -19,6 +24,7 @@ app.get('/root', function(req, res) {
 app.post('/root', function(req, res) {
   const { root } = req.query;
   roots.push(root);
+  fs.writeFileSync('./roots.json', JSON.stringify(roots));
   res.status(202).end();
 });
 
