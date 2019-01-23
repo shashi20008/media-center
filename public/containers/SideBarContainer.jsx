@@ -25,7 +25,7 @@ class SideBarComponent extends React.Component {
     this.props.onSideBarSelectionChanged(items[idx].item);
   }
 
-  focus() {
+  left() {
     this.state.items.find(item => item.item === 'series').selected = true;
     this.setState({});
   }
@@ -40,6 +40,7 @@ class SideBarComponent extends React.Component {
       return false;
     }
     this.changeSelection(idx);
+    return true;
   }
 
   up() {
@@ -52,9 +53,10 @@ class SideBarComponent extends React.Component {
       return false;
     }
     this.changeSelection(idx);
+    return true;
   }
 
-  removeFocus() {
+  right() {
     this.clearSelected();
     this.setState({});
   }

@@ -36,10 +36,12 @@
     "bluebird": "^3.5.3",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
+    "promise-polyfill": "^8.1.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "request": "^2.88.0",
-    "webpack": "^4.28.4"
+    "webpack": "^4.28.4",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
