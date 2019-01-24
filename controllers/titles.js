@@ -12,7 +12,7 @@ module.exports.list = type => {
     const checkDone = () => {
       numTitles--;
       if(numTitles <= 0) {
-        res.json(titles.map(title => result[title]));
+        res.json(titles.map(title => result[title] || {title}));
       }
     };
 
