@@ -1,32 +1,16 @@
-const fs = require('fs');
 const NavigateFS = require('../nav-fs');
+const TitlesController = require('../controllers/titles');
 
 module.exports = function(app) {
   app.get('/model', function(req, res) {
     res.json(NavigateFS.getModel());
   });
 
-  app.get('/series', function(req, res) {
-    res.json(NavigateFS.getModel().series);
-  });
+  app.get('/series', TitlesController.model('series'));
+  app.get('/series/list', TitlesController.list('series'));
+  app.get('/series/:id', TitlesController.title('series', 'id'));
 
-  app.get('/series/list', function(req, res) {
-    res.json(Object.keys(NavigateFS.getModel().series));
-  });
-
-  app.get('/series/:id', function(req, res) {
-    res.json(NavigateFS.getModel().series[req.params.id]);
-  });
-
-  app.get('/movies', function(req, res) {
-    res.json(NavigateFS.getModel().movies);
-  });
-
-  app.get('/movies/list', function(req, res) {
-    res.json(Object.keys(NavigateFS.getModel().movies));
-  });
-
-  app.get('/movies/:id', function(req, res) {
-    res.json(NavigateFS.getModel().movies[req.params.id]);
-  });
+  app.get('/movies', TitlesController.model('movies'));
+  app.get('/movies/list', TitlesController.list('movies'));
+  app.get('/movies/:id', TitlesController.title('movies', 'id'));
 };
