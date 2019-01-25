@@ -11,11 +11,7 @@ import { sideBarRef, listSectionRef } from './libs/key-navigation';
 
 import './css/common.less';
 
-const onSideBarSelectionChanged = (selected) => {
-  console.log(selected);
-};
-
-const options = { sideBarRef, listSectionRef, onSideBarSelectionChanged };
+const options = { sideBarRef, listSectionRef };
 
 function renderUI() {
   ReactDom.render(<PageContainer { ...options } />, document.getElementById('root'));

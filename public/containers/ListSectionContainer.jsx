@@ -6,107 +6,25 @@ class ListSectionContainer extends Component {
     super(props);
 
     this.state = {
-      section: 'series',
+      loading: true,
       list: []
     }
+  }
 
-    const self = this;
-    setTimeout(function() {
-      self.setState({
-        list: [{
-          name: 'Harry potter',
-          poster: 'https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX150.jpg',
-          selected: true
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }, {
-          name: 'The Expanse',
-          poster: 'https://m.media-amazon.com/images/M/MV5BNTdhZGJlYjEtYWNjMC00ZTYzLWEyODAtYWI4NzBjODBlNDM2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX150.jpg'
-        }]
+  componentDidMount() {
+    // load data;
+    fetch('http://rpi.local:8080/series/list')
+      .then(resp => (resp.ok && resp.json()) || [])
+      .catch(err => {
+        console.log(err);
+        return [];
+      })
+      .then(list => {
+        this.setState({
+          loading: false,
+          list
+        })
       });
-    }, 1000);
   }
 
   left() {
@@ -151,13 +69,13 @@ class ListSectionContainer extends Component {
       <div className="list-section">
         {
           this.state.list.map(item => 
-            <div className={ 'list-item ' + (item.selected ? 'selected' : '') } 
-              style={ {'background-image': 'url(' + item.poster + ')' } } 
+            <div className={ 'list-item ' + (item.selected ? 'selected ' : '') + (!item.POSTER ? 'no-poster ' : '') } 
+              style={ {'background-image': 'url(' + item.POSTER || '' + ')' } } 
               tabindex="-1" 
               ref={
                 listItem => listItem && item.selected && listItem.focus()
               }>
-              <div className="title-name">{item.name}</div>
+              <div className="title-name">{item.TITLE || item.title}</div>
             </div>
           )
         }

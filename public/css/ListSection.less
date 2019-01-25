@@ -13,6 +13,7 @@
   position: relative;
   float: left;
   background-repeat: no-repeat;
+  background-size: 150px;
   width: 150px;
   height: 220px;
   margin: 10px;
@@ -30,6 +31,27 @@
       border-radius: 0 0 10px 10px;
     }
   }
+  
+  &.no-poster:before, &.no-poster:after {
+    position: absolute;
+    content: '';
+    background: white;
+    display: block;
+    width: 125%;
+    height: 30px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-50deg);
+    left: -20px;
+    right: 0;
+    top: -35px;
+    bottom: 0;
+    margin: auto;
+  }
+
+  &.no-poster:after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(50deg);
+  }
 }
 
 .title-name {
@@ -39,6 +61,6 @@
   right: 0;
   height: 1.2em;
   text-align: center;
-  background-color: #90a4ae;
+  background-color: rgba(144, 164, 174, 0.75);
   padding: 10px 0;
 }
