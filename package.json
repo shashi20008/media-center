@@ -34,8 +34,12 @@
   "homepage": "https://github.com/shashi20008/media-center#readme",
   "dependencies": {
     "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "lodash": "^4.17.11",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "promise-polyfill": "^8.1.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

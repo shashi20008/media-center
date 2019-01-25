@@ -1,9 +1,21 @@
 'use strict';
 
+export const UNAUTHORIZED = new Error('unauthorized');
+
 export const fetchList = (type) => {
-  return fetch(`http://rpi.local:8080/${type}/list`)
-    .then(resp => (resp.ok && resp.json()) || [])
+  return fetch(`/${type}/list`)
+    .then(resp => {
+      if(!resp.ok && resp.status === 401) {
+        // blah.
+        throw UNAUTHORIZED;
+      }
+      return resp.json() || [];
+    })
     .catch(err => {
+      if(err === UNAUTHORIZED) {
+        throw UNAUTHORIZED; // re-throw.
+      }
+
       console.log(err);
       return [];
     });

@@ -2,7 +2,11 @@
 import React from 'react';
 import '../css/SideBar.less';
 
-const map = items => items.map(item => <div className={ "side-bar-item " + (item.selected ? 'selected' : '') } tabindex="0">{ item.item }</div>);
+const map = items => items.map(item => 
+  <div className={ "side-bar-item " + (item.selected ? 'selected' : '') } tabindex="0">
+    { item.item }
+  </div>
+);
 
 function SideBar(props) {
   return (
