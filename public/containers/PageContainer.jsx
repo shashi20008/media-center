@@ -20,10 +20,11 @@ class PageContainer extends Component {
     this.selectionChanged(this.state.type);
   }
 
-  selectionChanged(selection) {
-    API.fetchList(selection)
-      .then(list =>
-        this.setState({
+  selectionChanged(type) {
+    const ts = Date.now();
+    API.fetchList(type)
+      .then(list => 
+        (this.state.ts <= ts) && this.setState({
           list,
           noItems: list.length === 0,
           loading: false
@@ -31,7 +32,8 @@ class PageContainer extends Component {
       );
 
     this.setState({
-      type: selection,
+      ts,
+      type,
       loading: true
     });
   }
