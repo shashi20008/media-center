@@ -13,14 +13,23 @@ class ListSectionContainer extends Component {
 
   componentDidMount() {
     // load data;
-    fetch('http://rpi.local:8080/series/list')
+    fetch(`http://rpi.local:8080/${this.props.type}/list`)
       .then(resp => (resp.ok && resp.json()) || [])
       .catch(err => {
         console.log(err);
         return [];
       })
       .then(list => {
+        if(!list || list.length === 0) {
+          return this.setState({
+            loading: false,
+            noItems: true,
+            list: []
+          });
+        }
+
         this.setState({
+          noItems: false,
           loading: false,
           list
         })
@@ -64,24 +73,40 @@ class ListSectionContainer extends Component {
     return true;
   }
 
+  shouldComponentUpdate(nextProps) {
+    if(nextProps.type !== this.props.type) {
+      this.state.loading = true;
+      setTimeout(this.componentDidMount.bind(this), 100);
+    }
+    return true;
+  }
+
+  getList() {
+    if(this.state.loading) {
+      return (<div className="loading center"></div>);
+    }
+
+    if(this.state.noItems) {
+      return (<div className="empty-list center">Nothing matched your search.</div>);
+    }
+
+    return this.state.list.map(item => 
+      <div className={ 'list-item ' + (item.selected ? 'selected ' : '') + (!item.POSTER ? 'no-poster ' : '') } 
+        style={ !!item.POSTER ? {'background-image': 'url(' + item.POSTER + ')' } : {} } 
+        tabindex="-1" 
+        ref={
+          listItem => listItem && item.selected && listItem.focus()
+        }>
+        <div className="title-name">{item.TITLE || item.title}</div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="list-section">
         {
-          this.state.loading? (
-            <div className="loader center"></div>
-          ) : (
-            this.state.list.map(item => 
-              <div className={ 'list-item ' + (item.selected ? 'selected ' : '') + (!item.POSTER ? 'no-poster ' : '') } 
-                style={ {'background-image': 'url(' + item.POSTER || '' + ')' } } 
-                tabindex="-1" 
-                ref={
-                  listItem => listItem && item.selected && listItem.focus()
-                }>
-                <div className="title-name">{item.TITLE || item.title}</div>
-              </div>
-            )
-          )
+          this.getList()
         }
       </div>
     );

@@ -18,7 +18,7 @@ class PageContainer extends Component {
   render() {
     return (
       <div> 
-        <SideBarComponent ref={ this.props.sideBarRef } onSideBarSelectionChanged={this.selectionChanged} /> 
+        <SideBarComponent ref={ this.props.sideBarRef } selected={this.state.type} onSideBarSelectionChanged={this.selectionChanged} /> 
         <ListSectionContainer ref={ this.props.listSectionRef } type={ this.state.type } /> 
       </div>
     );

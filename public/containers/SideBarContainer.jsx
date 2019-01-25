@@ -26,7 +26,7 @@ class SideBarComponent extends React.Component {
   }
 
   left() {
-    this.state.items.find(item => item.item === 'series').selected = true;
+    this.state.items.find(item => item.item === this.props.selected).selected = true;
     this.setState({});
   }
 
