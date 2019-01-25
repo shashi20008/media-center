@@ -68,15 +68,19 @@ class ListSectionContainer extends Component {
     return (
       <div className="list-section">
         {
-          this.state.list.map(item => 
-            <div className={ 'list-item ' + (item.selected ? 'selected ' : '') + (!item.POSTER ? 'no-poster ' : '') } 
-              style={ {'background-image': 'url(' + item.POSTER || '' + ')' } } 
-              tabindex="-1" 
-              ref={
-                listItem => listItem && item.selected && listItem.focus()
-              }>
-              <div className="title-name">{item.TITLE || item.title}</div>
-            </div>
+          this.state.loading? (
+            <div className="loader center"></div>
+          ) : (
+            this.state.list.map(item => 
+              <div className={ 'list-item ' + (item.selected ? 'selected ' : '') + (!item.POSTER ? 'no-poster ' : '') } 
+                style={ {'background-image': 'url(' + item.POSTER || '' + ')' } } 
+                tabindex="-1" 
+                ref={
+                  listItem => listItem && item.selected && listItem.focus()
+                }>
+                <div className="title-name">{item.TITLE || item.title}</div>
+              </div>
+            )
           )
         }
       </div>
