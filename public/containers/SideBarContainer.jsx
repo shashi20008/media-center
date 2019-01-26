@@ -2,7 +2,7 @@
 import SideBar from '../components/SideBar';
 import React from 'react';
 
-const SIDEBAR_ITEMS = ['series', 'movies', 'others'];
+const SIDEBAR_ITEMS = ['series', 'movies', 'others', 'logout'];
 
 class SideBarComponent extends React.Component {
   constructor(props) {
@@ -22,6 +22,10 @@ class SideBarComponent extends React.Component {
     this.clearSelected();
     items[idx].selected = true;
     this.setState({});
+    if(items[idx].item === 'logout') {
+      return;
+    }
+
     this.props.onSideBarSelectionChanged(items[idx].item);
   }
 
@@ -59,6 +63,13 @@ class SideBarComponent extends React.Component {
   right() {
     this.clearSelected();
     this.setState({});
+  }
+
+  enter() {
+    if(this.state.items.filter(item => (item.selected === true && item.item === 'logout'))) {
+      this.props.onLogout();
+    }
+    return true;
   }
 
   render() {

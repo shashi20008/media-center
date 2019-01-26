@@ -15,6 +15,7 @@ class PageContainer extends Component {
     };
 
     this.selectionChanged = this.selectionChanged.bind(this);
+    this.onLogout = this.onLogout.bind(this);
   }
 
   componentDidMount() {
@@ -50,10 +51,24 @@ class PageContainer extends Component {
     });
   }
 
-  onLogin() {
-    this.setState({
-      loginRequired: false
-    });
+  onLogin(username, password) {
+    API.login(username, password)
+      .then(() => {
+        this.setState({
+          loginRequired: false
+        });
+        this.selectionChanged(this.state.type);
+      })
+      .catch(err=> console.error);
+  }
+
+  onLogout() {
+    API.logout()
+      .then(() => {
+        this.setState({
+          loginRequired: true
+        })
+      });
   }
 
   render() {
@@ -63,7 +78,7 @@ class PageContainer extends Component {
 
     return (
       <div> 
-        <SideBarComponent ref={ this.props.sideBarRef } selected={this.state.type} onSideBarSelectionChanged={this.selectionChanged} /> 
+        <SideBarComponent ref={ this.props.sideBarRef } selected={ this.state.type } onSideBarSelectionChanged={ this.selectionChanged } onLogout={ this.onLogout } /> 
         <ListSectionContainer ref={ this.props.listSectionRef } { ...this.state }  /> 
       </div>
     );

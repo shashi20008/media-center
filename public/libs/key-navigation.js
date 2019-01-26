@@ -26,12 +26,17 @@ const KeyToFnMap = {
   37: 'left',
   39: 'right',
   38: 'up',
-  40: 'down'
+  40: 'down',
+  13: 'enter'
 };
 
 const noop = () => {};
 
 const keyPressHandler = e => {
+  if(sideBarRef.current === null && listSectionRef.current === null) {
+    return;
+  }
+
   const handler = (KeyToFnMap[e.which] || noop);
   if(!focusedRef.current[handler]()) {
     switchFocus(handler);

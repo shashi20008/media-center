@@ -19,12 +19,10 @@ passport.use(new LocalStrategy(
 ));
 
 passport.serializeUser(function(user, done) {
-  console.log('serializeUser');
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  console.log('deserializeUser');
   done(null, USER);
 });
 
