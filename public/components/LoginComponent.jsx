@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-//import '../css/login.less';
+import '../css/login.less';
 
 const nameRef = React.createRef();
 const passRef = React.createRef();
@@ -29,9 +29,9 @@ const onLogin = parentOnLogin => {
 function LoginComponent(props) {
   return (
     <div className="login-section">
-      <input type="text" ref={ nameRef } />
-      <input type="password" ref={ passRef } />
-      <button onClick={ onLogin.bind(null, props.onLogin) }>Login</button>
+      <div className="inpt-control"><input type="text" ref={ nameRef } placeholder="Email" /></div>
+      <div className="inpt-control"><input type="password" ref={ passRef } placeholder="Password"/></div>
+      <div className="inpt-control"><button onClick={ onLogin.bind(null, props.onLogin) }>Login</button></div>
     </div>
   );
 }
