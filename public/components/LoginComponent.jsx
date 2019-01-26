@@ -29,7 +29,7 @@ const onLogin = parentOnLogin => {
 function LoginComponent(props) {
   return (
     <div className="login-section">
-      <div className="inpt-control"><input type="text" ref={ nameRef } placeholder="Email" /></div>
+      <div className="inpt-control"><input type="text" ref={ nameRef } placeholder="Email" autoFocus={ true } /></div>
       <div className="inpt-control"><input type="password" ref={ passRef } placeholder="Password"/></div>
       <div className="inpt-control"><button onClick={ onLogin.bind(null, props.onLogin) }>Login</button></div>
     </div>
